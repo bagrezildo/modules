@@ -1,0 +1,58 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "orthofinder"
+## TODO nf-core: Add a description of the module and list keywords
+description: Finds orthogroups and orthologs from a set of protein sequence files (one per species) in FASTA format.
+keywords:
+  - fasta
+  - orthologs
+  - genomics
+tools:
+  - "orthofinder":
+      ## TODO nf-core: Add a description and other details for the software below
+      description: "Accurate inference of orthogroups, orthologues, gene trees and rooted species tree made easy!"
+      homepage: "https://github.com/davidemms/OrthoFinder"
+      documentation: "https://github.com/davidemms/OrthoFinder"
+      tool_dev_url: "https://github.com/davidemms/OrthoFinder"
+      doi: "https://doi.org/10.1186/s13059-019-1832-y"
+      licence: ['GPL v3']
+
+## TODO nf-core: Add a description of all of the variables used as input
+input:
+  # Only when we have meta
+  # - meta:
+  #     type: map
+  #     description: |
+  #       Groovy Map containing sample information
+  #       e.g. `[ id:'sample1', single_end:false ]`
+  
+  ## TODO nf-core: Delete / customise this example input
+  - fasta:
+      type: directory
+      description: Directory containing protein sequence file (one per species) in FASTA format
+      pattern: "*/*"
+
+
+## TODO nf-core: Add a description of all of the variables used as output
+output:
+  #Only when we have meta
+  # - meta:
+  #     type: map
+  #     description: |
+  #       Groovy Map containing sample information
+  #       e.g. `[ id:'sample1', single_end:false ]`
+  
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+  ## TODO nf-core: Delete / customise this example output
+  - results:
+      type: directory
+      description: Directory containing OrthoFinder result files
+      pattern: "*/*"
+
+authors:
+  - "@bagrezildo"
+maintainers:
+  - "@bagrezildo"
